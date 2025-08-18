@@ -1,0 +1,160 @@
+.hero {
+  height: 80vh; /* Ensure Hero takes full viewport height */
+  width: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  animation: heroFadeIn 1.2s ease-out;
+  background: none; /* REMOVED old gradient background */
+  background-color: #000000; /* Set a solid black background for the Hero section */
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* NEW CLASS: Apply this to the div wrapping your <DarkVeil /> component */
+.threads-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Ensure it stays behind other content */
+  /* The inline style 'width: 100%; height: 600px; position: relative;' on the div in Hero.jsx
+     will be overridden by these properties if this class is applied. */
+}
+
+/* REMOVED: Old background decoration styles */
+/*
+.hero-background-decoration {
+  display: none;
+}
+.floating-circle {
+  display: none;
+}
+@keyframes floatCircle {
+  display: none;
+}
+*/
+
+.hero-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  padding-left: 120px;
+  line-height: 1.1;
+  position: relative;
+  z-index: 3; /* Ensure content is on top of DarkVeil */
+}
+
+.hero-left h2 {
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.hero-left p {
+  color: whitesmoke;
+  font-size: 100px;
+   /* font-family: 'Mozilla Text'; */
+  font-weight: 300;
+  transition: transform 0.3s ease;
+}
+
+.hero-left p:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+.hand-hand-icon {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.hand-hand-icon img {
+  width: 105px;
+  transition: transform 0.6s ease;
+  animation: wave 2s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+}
+
+.hand-hand-icon img:hover {
+  transform: scale(1.1) rotate(10deg);
+  animation-play-state: paused;
+}
+
+.hero-latest-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 310px;
+  height: 70px;
+  border-radius: 75px;
+  margin-top: 30px;
+  background-color: white;
+  color: black;
+  border: 3px solid gray;
+  font-size: 22px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for button */
+}
+
+.hero-latest-btn:hover {
+  background-color: lightgray;
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.hero-rigth {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 3; /* Ensure content is on top of DarkVeil */
+}
+
+.hero-rigth{
+  height: 80%;
+  width: 100%;
+  max-width: 400px;
+}
+.hero-video{
+  position: absolute;
+    /* top: 0; */
+     left: -115px;;
+    width: 100%;
+    height: 150%;
+    object-fit: cover;
+    opacity: 0.8;
+    z-index: 10;
+    border-radius: inherit;
+}
+
+
+

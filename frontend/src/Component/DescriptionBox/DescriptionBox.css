@@ -1,0 +1,208 @@
+.descriptionbox {
+    margin: 60px auto;
+    max-width: 1400px;
+    padding: 0 20px;
+  }
+  
+  .descriptionbox-navigator {
+    display: flex;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: white;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .descriptionbox-nav-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    min-width: 170px;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    background-color: #333333;
+    color: white;
+    flex: 1;
+    text-align: center;
+    user-select: none;
+  }
+  
+  .descriptionbox-nav-box:hover {
+    background-color: #555555;
+    transform: translateY(-2px);
+  }
+  
+  .descriptionbox-nav-box.fade {
+    background-color: #f8f8f8;
+    color: #666666;
+    border-left: 1px solid #e0e0e0;
+  }
+  
+  .descriptionbox-nav-box.fade:hover {
+    background-color: #e0e0e0;
+    color: #333333;
+  }
+  
+  .descriptionbox-nav-box::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+  }
+  
+  .descriptionbox-nav-box:not(.fade)::after {
+    background-color: #333333;
+  }
+  
+  .descriptionbox-description {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    padding: 40px;
+    background-color: white;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    line-height: 1.7;
+  }
+  
+  .descriptionbox-description p {
+    color: #444444;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    text-align: justify;
+    letter-spacing: 0.3px;
+    position: relative;
+    padding-left: 20px;
+  }
+  
+  .descriptionbox-description p::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 4px;
+    height: 4px;
+    background-color: #333333;
+    border-radius: 50%;
+  }
+  
+  .descriptionbox-description p:first-child {
+    font-weight: 500;
+    color: #333333;
+  }
+  
+  .descriptionbox-description p:first-child::before {
+    background-color: #666666;
+    width: 6px;
+    height: 6px;
+    top: 7px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .descriptionbox {
+      margin: 40px auto;
+      padding: 0 15px;
+    }
+  
+    .descriptionbox-navigator {
+      flex-direction: column;
+      border-radius: 8px;
+    }
+  
+    .descriptionbox-nav-box {
+      min-width: auto;
+      height: 50px;
+      font-size: 14px;
+      border-radius: 0;
+    }
+  
+    .descriptionbox-nav-box.fade {
+      border-left: none;
+      border-top: 1px solid #e0e0e0;
+    }
+  
+    .descriptionbox-description {
+      padding: 25px 20px;
+      gap: 20px;
+      border-radius: 0 0 8px 8px;
+    }
+  
+    .descriptionbox-description p {
+      font-size: 15px;
+      text-align: left;
+      padding-left: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .descriptionbox {
+      margin: 30px auto;
+      padding: 0 10px;
+    }
+  
+    .descriptionbox-nav-box {
+      height: 45px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+  
+    .descriptionbox-description {
+      padding: 20px 15px;
+      gap: 18px;
+    }
+  
+    .descriptionbox-description p {
+      font-size: 14px;
+      line-height: 1.6;
+      padding-left: 12px;
+    }
+  
+    .descriptionbox-description p::before {
+      width: 3px;
+      height: 3px;
+      top: 6px;
+    }
+  
+    .descriptionbox-description p:first-child::before {
+      width: 5px;
+      height: 5px;
+      top: 5px;
+    }
+  }
+  
+  /* Additional Enhancement: Smooth transitions for content */
+  .descriptionbox-description {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Hover effect for the entire description box
+  .descriptionbox-description:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+   */

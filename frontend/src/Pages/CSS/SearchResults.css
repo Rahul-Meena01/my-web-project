@@ -1,0 +1,39 @@
+.search-results-page {
+    padding: 20px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 100px;
+}
+
+.search-results-page h1 {
+    color: #171717;
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.search-results-page hr {
+    width: 200px;
+    height: 6px;
+    border-radius: 10px;
+    background: #252525;
+}
+
+.search-query-display {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.search-items {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.no-results-found {
+    margin-top: 50px;
+    font-size: 20px;
+    color: #555;
+}

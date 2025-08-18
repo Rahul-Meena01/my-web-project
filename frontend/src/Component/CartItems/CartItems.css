@@ -1,0 +1,350 @@
+.cartitems {
+    margin: 60px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+  
+  .cartitems hr {
+    height: 1px;
+    background-color: #e0e0e0;
+    border: 0;
+    margin: 0;
+  }
+  
+  .cartitems-format-main {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr 0.8fr;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 30px;
+    color: #333333;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .cartitems-format-main p:first-child {
+    text-align: left;
+  }
+  
+  .cartitems-format-main p:nth-child(2) {
+    text-align: left;
+  }
+  
+  .cartitems-format {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr 0.8fr;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 30px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+  }
+  
+  .cartitems-format > *:first-child {
+    justify-self: start;
+  }
+  
+  .cartitems-format > *:nth-child(2) {
+    justify-self: start;
+    text-align: left;
+  }
+  
+  .cartitems-format p {
+    color: #333333;
+    margin: 0;
+  }
+  
+  .carticon-product-icon {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    padding: 5px;
+  }
+  
+  .carticon-remove-icon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background-color: #f8f8f8;
+    border-radius: 50%;
+    padding: 8px;
+    transition: all 0.2s ease;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .carticon-remove-icon:hover {
+    background-color: #ff4444;
+    transform: scale(1.1);
+  }
+  
+  .cartitmes-quantity {
+    width: 80px;
+    height: 40px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    cursor: default;
+    transition: border-color 0.2s ease;
+  }
+  
+  .cartitmes-quantity:hover {
+    border-color: #333333;
+  }
+  
+  .cartitems-down {
+    display: flex;
+    margin: 60px 0 40px 0;
+    gap: 40px;
+  }
+  
+  .cartitems-total {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .cartitems-total h1 {
+    color: #333333;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .cartitems-total-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    color: #333333;
+    font-size: 16px;
+  }
+  
+  .cartitems-total-item p {
+    margin: 0;
+    font-weight: 500;
+  }
+  
+  .cartitems-total-item h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333;
+  }
+  
+  .cartitems-total button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: #333333;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .cartitems-total button:hover {
+    background-color: #555555;
+  }
+  
+  .cartitems-promocode {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .cartitems-promocode p {
+    color: #666666;
+    margin: 0 0 20px 0;
+    font-size: 16px;
+  }
+  
+  .cartitems-promobox {
+    width: 100%;
+    height: 48px;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+    display: flex;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .cartitems-promobox input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    flex: 1;
+    height: 100%;
+    padding: 0 20px;
+    color: #333333;
+  }
+  
+  .cartitems-promobox input::placeholder {
+    color: #999999;
+  }
+  
+  .cartitems-promobox button {
+    width: 150px;
+    height: 100%;
+    font-size: 16px;
+    background: #333333;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+  }
+  
+  .cartitems-promobox button:hover {
+    background: #555555;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .cartitems {
+      margin: 40px auto;
+      padding: 0 15px;
+    }
+  
+    .cartitems-format-main,
+    .cartitems-format {
+      grid-template-columns: 0.8fr 2.5fr 1fr 1fr 1fr 0.8fr;
+      gap: 15px;
+      padding: 20px;
+    }
+  
+    .cartitems-down {
+      gap: 30px;
+    }
+  
+    .carticon-product-icon {
+      height: 70px;
+      width: 70px;
+    }
+  
+    .cartitmes-quantity {
+      width: 70px;
+      height: 35px;
+      font-size: 14px;
+    }
+  
+    .carticon-remove-icon {
+      width: 28px;
+      height: 28px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .cartitems-down {
+      flex-direction: column;
+      gap: 25px;
+    }
+  
+    .cartitems-total,
+    .cartitems-promocode {
+      padding: 25px;
+    }
+  
+    .cartitems-format-main,
+    .cartitems-format {
+      grid-template-columns: 0.6fr 2fr 0.8fr 0.8fr 0.8fr 0.6fr;
+      gap: 10px;
+      padding: 15px;
+      font-size: 14px;
+    }
+  
+    .carticon-product-icon {
+      height: 60px;
+      width: 60px;
+    }
+  
+    .cartitmes-quantity {
+      width: 60px;
+      height: 32px;
+      font-size: 13px;
+    }
+  
+    .carticon-remove-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .cartitems {
+      padding: 0 10px;
+    }
+  
+    .cartitems-format-main {
+      display: none;
+    }
+  
+    .cartitems-format {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      text-align: center;
+      padding: 20px;
+    }
+  
+    .carticon-product-icon {
+      height: 100px;
+      width: 100px;
+    }
+  
+    .cartitmes-quantity {
+      width: 80px;
+      height: 40px;
+      font-size: 16px;
+    }
+  
+    .carticon-remove-icon {
+      width: 32px;
+      height: 32px;
+    }
+  
+    .cartitems-total,
+    .cartitems-promocode {
+      padding: 20px;
+    }
+  
+    .cartitems-total h1 {
+      font-size: 20px;
+    }
+  }
+  

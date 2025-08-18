@@ -1,0 +1,36 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  gap: 20px;
+  width: 100%;
+  max-width: 250px;
+  background: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 20px;
+  padding: 10px 15px;
+  border-radius: 6px;
+  background: #f0f0f0;
+  gap: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.sidebar-item:hover {
+  background: #e0e0e0;
+}
+
+.sidebar-item img {
+  width: 28px;
+}
+
+.sidebar-item p {
+  color: #333;
+  font-size: 16px;
+}
