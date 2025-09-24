@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './ProductDisplay.css'
 import star_icon from '../Asset/star_icon.png'
 import star_dull_icon from '../Asset/star_dull_icon.png'
@@ -8,6 +8,7 @@ import { ShopContext } from '../../Context/ShopContext'
 const ProductDisplay = (props) => {
     const {product} = props;
     const {addToCart} = useContext(ShopContext);
+    const [selectedSize, setSelectedSize] = useState('');
   return (
     <div className = 'productdisplay'>
         <div className="productdisplay-left">
@@ -42,14 +43,28 @@ const ProductDisplay = (props) => {
             <div className="productdisplay-rigth-size">
                 <h1>Select Size</h1>
                 <div className="productdisplay-rigth-sizes">
-                    <div>S</div>
-                    <div>M</div>
-                    <div>L</div>
-                    <div>XL</div>
-                    <div>XXL</div>
+                    {['S', 'M', 'L', 'XL', 'XXL'].map((size) => (
+                        <div 
+                            key={size}
+                            className={selectedSize === size ? 'selected' : ''}
+                            onClick={() => setSelectedSize(size)}
+                        >
+                            {size}
+                        </div>
+                    ))}
                 </div>
             </div>
-            <button onClick={() => {addToCart(product.id)}}>ADD TO CART</button>
+            <button 
+                onClick={() => {
+                    if (!selectedSize) {
+                        alert('कृपया पहले साइज़ सेलेक्ट करें!');
+                        return;
+                    }
+                    addToCart(product.id, selectedSize);
+                }}
+            >
+                ADD TO CART
+            </button>
            <p className='productdisplay-rigth-category'><span>Category :</span>Women, Tshirt, Crop Top, Shirt, Jeans </p>
            <p className='productdisplay-rigth-category'><span>Tags :</span>Modern, Latest</p>
         </div>

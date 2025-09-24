@@ -1,13 +1,30 @@
 import React from 'react'
 import './Navbar.css'
-import navlogo from '../../assets/Admin_Assets/nav-logo.svg' // Assuming you have a logo image
-import navProfile from '../../assets/Admin_Assets/nav-profile.svg' // Assuming you have a profile image
+import navlogo from '../../assets/Admin_Assets/logo.png'
+import navProfile from '../../assets/Admin_Assets/nav-profile.svg'
 
-const Navbar = () => {
+const Navbar = ({ onLogout }) => {
+  const handleLogout = () => {
+    if (window.confirm('Are you sure you want to logout?')) {
+      onLogout();
+    }
+  };
+
   return (
     <div className='navbar'>
-     <img src={navlogo} alt="" className="nav-log" />
-     <img src={navProfile} className="nav-profile"  alt="" />
+      <div className="navbar-left">
+        <img src={navlogo} alt="Logo" className="nav-logo" />
+        <h2 className="admin-title">Admin Panel</h2>
+      </div>
+      <div className="navbar-right">
+        <div className="admin-info">
+          <span className="welcome-text">Welcome, Admin</span>
+          <button className="logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
+        <img src={navProfile} className="nav-profile" alt="Profile" />
+      </div>
     </div>
   )
 }

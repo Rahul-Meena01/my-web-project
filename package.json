@@ -1,0 +1,24 @@
+{
+  "name": "my-web-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "backend",
+    "frontend",
+    "admin"
+  ],
+  "scripts": {
+    "start": "npm run start -w backend",
+    "dev": "npm run dev -w backend",
+    "build": "npm run build -w frontend && npm run build -w admin",
+    "start:frontend": "npm run start -w frontend",
+    "start:admin": "npm run dev -w admin",
+    "lint": "echo 'Add project-specific linters under each workspace'",
+    "test": "echo 'Add tests per workspace'"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
+
+

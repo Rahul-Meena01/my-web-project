@@ -33,9 +33,12 @@ const ShopContextProvider = (props) => {
         }
     }, []); // The empty array ensures this runs only once
 
-    const addToCart = (itemId) => {
+    const addToCart = (itemId, selectedSize = 'M') => {
+        // Create a unique key combining itemId and size
+        const cartKey = `${itemId}_${selectedSize}`;
+        
         // Update state locally for a fast UI response
-        setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 }));
+        setCartItems((prev) => ({ ...prev, [cartKey]: (prev[cartKey] || 0) + 1 }));
 
         // If user is logged in, send update to the backend
         if (localStorage.getItem('auth-token')) {
@@ -46,7 +49,7 @@ const ShopContextProvider = (props) => {
                     'auth-token': `${localStorage.getItem('auth-token')}`,
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ "itemId": itemId }),
+                body: JSON.stringify({ "itemId": itemId, "size": selectedSize }),
             })
             .then((response) => response.json())
             .then((data) => console.log("Item added to cart:", data))
@@ -54,9 +57,13 @@ const ShopContextProvider = (props) => {
         }
     }
 
-    const removeFromCart = (itemId) => {
+    const removeFromCart = (cartKey) => {
         // Update state locally for a fast UI response
-        setCartItems((prev) => ({ ...prev, [itemId]: Math.max(0, (prev[itemId] || 0) - 1) }));
+        setCartItems((prev) => ({ ...prev, [cartKey]: Math.max(0, (prev[cartKey] || 0) - 1) }));
+
+        // Extract itemId from cartKey for backend
+        const itemId = cartKey.split('_')[0];
+        const size = cartKey.split('_')[1];
 
         // If user is logged in, send update to the backend
         if (localStorage.getItem('auth-token')) {
@@ -67,7 +74,7 @@ const ShopContextProvider = (props) => {
                     'auth-token': `${localStorage.getItem('auth-token')}`,
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ "itemId": itemId }),
+                body: JSON.stringify({ "itemId": itemId, "size": size }),
             })
             .then((response) => response.json())
             .then((data) => console.log("Item removed from cart:", data))
@@ -77,11 +84,12 @@ const ShopContextProvider = (props) => {
     
     const getTotalCartAmount = () => {
         let totalAmount = 0;
-        for (const item in cartItems) {
-            if (cartItems[item] > 0 && all_product.length > 0) {
-                let itemInfo = all_product.find((product) => product.id === Number(item));
+        for (const cartKey in cartItems) {
+            if (cartItems[cartKey] > 0 && all_product.length > 0) {
+                const itemId = cartKey.split('_')[0];
+                let itemInfo = all_product.find((product) => product.id === Number(itemId));
                 if (itemInfo) {
-                    totalAmount += itemInfo.new_price * cartItems[item];
+                    totalAmount += itemInfo.new_price * cartItems[cartKey];
                 }
             }
         }
@@ -90,9 +98,9 @@ const ShopContextProvider = (props) => {
 
     const getTotalCartItems = () => {
         let totalItem = 0;
-        for (const item in cartItems) {
-            if (cartItems[item] > 0) {
-                totalItem += cartItems[item];
+        for (const cartKey in cartItems) {
+            if (cartItems[cartKey] > 0) {
+                totalItem += cartItems[cartKey];
             }
         }
         return totalItem;

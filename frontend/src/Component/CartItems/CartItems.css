@@ -13,7 +13,7 @@
   
   .cartitems-format-main {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr 1fr 1fr 0.8fr;
+    grid-template-columns: 1fr 2.5fr 0.8fr 1fr 1fr 1fr 0.8fr;
     align-items: center;
     gap: 20px;
     padding: 20px 30px;
@@ -36,7 +36,7 @@
   
   .cartitems-format {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr 1fr 1fr 0.8fr;
+    grid-template-columns: 1fr 2.5fr 0.8fr 1fr 1fr 1fr 0.8fr;
     align-items: center;
     gap: 20px;
     padding: 25px 30px;
@@ -345,6 +345,16 @@
   
     .cartitems-total h1 {
       font-size: 20px;
+    }
+    .cart-size {
+      font-weight: 700;
+      color: #333333;
+      background-color: #f0f0f0;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
   }
   

@@ -2,7 +2,7 @@
 
 import { useContext, useState, useEffect } from "react"
 import "./Navbar.css"
-import logo_1 from "../Asset/logo_1.png"
+import logo from "../Asset/logo.png"
 import cart_icon from "../Asset/cart_icon.png"
 import { Link, useNavigate } from "react-router-dom"
 import { ShopContext } from "../../Context/ShopContext"
@@ -106,7 +106,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="nav-logo">
-        <img src={logo_1 || "/placeholder.svg"} alt="Logo" />
+        <img src={logo || "/placeholder.svg"} alt="Logo" />
       </div>
 
       <ul className="nav-menu">

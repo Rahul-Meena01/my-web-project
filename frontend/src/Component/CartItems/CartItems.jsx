@@ -2,31 +2,45 @@ import React, { useContext } from 'react'
 import './CartItems.css'
 import { ShopContext } from '../../Context/ShopContext';
 import remove_icon from '../Asset/cart_cross_icon.png';
+import { useNavigate } from 'react-router-dom';
 
 const CartItems = () => {
-    const {getTotalCartAmount,all_product,cartItems,addToCart,removeFromCart} = useContext(ShopContext) 
+    const {getTotalCartAmount,all_product,cartItems,removeFromCart} = useContext(ShopContext);
+    const navigate = useNavigate();
+
+    const handleCheckout = () => {
+        navigate('/checkout');
+    }; 
   return (
     <div className='cartitems'>
         <div className="cartitems-format-main">
             <p>Products</p>
             <p>Title</p>
+            <p>Size</p>
             <p>Price</p>
             <p>Quantity</p>
             <p>Total</p>
             <p>Remove</p>
         </div>
         <hr/>
-        {all_product.map((e)=>{
-            if(cartItems[e.id]>0) 
+        {Object.keys(cartItems).map((cartKey)=>{
+            if(cartItems[cartKey]>0) 
             {
-                return ( <div>
+                const itemId = cartKey.split('_')[0];
+                const size = cartKey.split('_')[1];
+                const product = all_product.find((e) => e.id === Number(itemId));
+                
+                if (!product) return null;
+                
+                return ( <div key={cartKey}>
                     <div className="cartitems-format cartitems-format-main">
-            <img src={e.image} alt="" className='carticon-product-icon'  />
-            <p>{e.name}</p>
-            <p> ₹{e.new_price}</p>
-            <button className='cartitmes-quantity'>{cartItems[e.id]}</button>
-            <p> ₹{e.new_price* cartItems[e.id]}</p>
-            <img className='carticon-remove-icon' src={remove_icon} onClick={()=>{removeFromCart(e.id)}} alt="" />
+            <img src={product.image} alt="" className='carticon-product-icon'  />
+            <p>{product.name}</p>
+            <p className="cart-size">{size}</p>
+            <p> ₹{product.new_price}</p>
+            <button className='cartitmes-quantity'>{cartItems[cartKey]}</button>
+            <p> ₹{product.new_price * cartItems[cartKey]}</p>
+            <img className='carticon-remove-icon' src={remove_icon} onClick={()=>{removeFromCart(cartKey)}} alt="" />
         </div>
         <hr />
        </div>
@@ -54,7 +68,7 @@ const CartItems = () => {
 
                    </div>
                 </div>
-                <button>PROCEED TO CHECKOUT</button>
+                <button onClick={handleCheckout}>PROCEED TO CHECKOUT</button>
             </div>
            <div className="cartitems-promocode">
             <p>If you have a promo code, Enter it there</p>
